@@ -1,5 +1,5 @@
 //
-//  RMEmpoints.swift
+//  RMEndpoint.swift
 //  RickAndMortyApp
 //
 //  Created by Sebastian Buquet on 29/01/2023.
@@ -8,8 +8,8 @@
 import Foundation
 
 
-/// Represent API enpoints
-@frozen enum RMEmpoints: String {
+/// Represent API RMEndpoint
+@frozen enum RMEndpoint: String {
     case character
     case episode
     case location
