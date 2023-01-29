@@ -88,6 +88,34 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C32144AA2986E43E00F93D95 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		C32144AB2986E44F00F93D95 /* APICliente */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = APICliente;
+			sourceTree = "<group>";
+		};
+		C32144AC2986E46400F93D95 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		C32144AD2986E47800F93D95 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		C364F3132986AA6D00C01D17 = {
 			isa = PBXGroup;
 			children = (
@@ -111,12 +139,12 @@
 		C364F31E2986AA6D00C01D17 /* RickAndMortyApp */ = {
 			isa = PBXGroup;
 			children = (
+				C32144AB2986E44F00F93D95 /* APICliente */,
+				C32144AA2986E43E00F93D95 /* Manager */,
 				C364F3562986D22300C01D17 /* Resources */,
-				C364F3552986D06500C01D17 /* Manager */,
-				C364F3542986D04100C01D17 /* APICliente */,
 				C364F3522986B6D100C01D17 /* Models */,
-				C364F3512986B6B400C01D17 /* ViewModels */,
-				C364F3502986B6AE00C01D17 /* Views */,
+				C32144AC2986E46400F93D95 /* ViewModels */,
+				C32144AD2986E47800F93D95 /* Views */,
 				C364F34F2986B6A700C01D17 /* Controllers */,
 				C364F32D2986AA6F00C01D17 /* Info.plist */,
 			);
@@ -148,20 +176,6 @@
 			path = Controllers;
 			sourceTree = "<group>";
 		};
-		C364F3502986B6AE00C01D17 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
-		C364F3512986B6B400C01D17 /* ViewModels */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ViewModels;
-			sourceTree = "<group>";
-		};
 		C364F3522986B6D100C01D17 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -170,20 +184,6 @@
 				C364F3592986D31800C01D17 /* RMCaracter.swift */,
 			);
 			path = Models;
-			sourceTree = "<group>";
-		};
-		C364F3542986D04100C01D17 /* APICliente */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = APICliente;
-			sourceTree = "<group>";
-		};
-		C364F3552986D06500C01D17 /* Manager */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Manager;
 			sourceTree = "<group>";
 		};
 		C364F3562986D22300C01D17 /* Resources */ = {
