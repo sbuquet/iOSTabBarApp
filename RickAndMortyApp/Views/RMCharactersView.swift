@@ -8,7 +8,7 @@
 import UIKit
 
 final class RMCharactersView: UIView {
-    private let viewModel = RMCharactersViewViewModel()
+    private let viewModel = RMCharactersListViewViewModel()
 
     // Anonymous closure ??
     private let spinner: UIActivityIndicatorView = {
@@ -27,16 +27,17 @@ final class RMCharactersView: UIView {
         collectionView.alpha = 0
         collectionView.isHidden = true
         collectionView.register(
-            UICollectionViewCell.self,
-            forCellWithReuseIdentifier: "cell"
+            RMCharacterCollectionViewCell.self,
+            forCellWithReuseIdentifier: RMCharacterCollectionViewCell.cellIdentifier
         )
+
         return collectionView
     }()
 
     override init(frame: CGRect) {
         super.init(frame: frame)
         translatesAutoresizingMaskIntoConstraints = false
-        addSubview(collectionView, spinner)
+        addSubviews(collectionView, spinner)
 
         addConstraint()
         spinner.startAnimating()

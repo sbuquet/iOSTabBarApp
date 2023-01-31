@@ -20,43 +20,27 @@ final class RMService {
         case failedToGetData
     }
 
-
     /// Send a request to the RM API
     /// - Parameters:
     ///   - request: Request instance
-    ///   - completion: Call back data or error
     public func execute<T: Codable>(
-        _ request: RMRequest,
-        expecting type: T.Type,
-        completion: @escaping (Result<T, Error>) -> Void
-    ) {
-        guard let urlRequest = self.request(from: request) else {
-            completion(.failure(RMServiceError.failedToCreateRequest))
-            return
-        }
-
-        let task = URLSession.shared.dataTask(with: urlRequest) { data, response, error in
-            guard let data = data, error == nil else {
-                completion(.failure(error ?? RMServiceError.failedToGetData))
-                return
-            }
-
-            do {
-                let result = try JSONDecoder().decode(T.self, from: data)
-                completion(.success(result))
-            } catch {
-                completion(.failure(error))
-                return
-            }
-        }
-
-        task.resume()
+        _ request: RMRequest
+    ) async throws -> T {
+        let data = try await baseRequest(request)
+        return try JSONDecoder().decode(T.self, from: data)
     }
 
-    private func request(from rmRequest: RMRequest) -> URLRequest? {
-        guard let url = rmRequest.url else { return nil }
-        var request = URLRequest(url: url)
-        request.httpMethod = rmRequest.httpMethod
-        return request
+    public func fetchImage(_ request: RMRequest) async throws -> Data {
+        return try await baseRequest(request)
+    }
+
+    private func baseRequest(_ request: RMRequest) async throws -> Data {
+        guard let url = request.url else {
+            throw RMServiceError.failedToCreateRequest
+        }
+        print(url)
+        let (data, response) = try await URLSession.shared.data(from: url)
+        print(response)
+        return data
     }
 }
