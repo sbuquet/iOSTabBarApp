@@ -27,7 +27,9 @@ private var characterImageUrl: URL?
     }
 
     public func fetchImage() async throws -> Data? {
-        let data: Data = try await RMService.shared.fetchImage(url: "https://rickandmortyapi.com/api/character/avatar/14.jpeg")
+        let data: Data = try await RMService.shared.fetchImage(
+            urlString: "https://rickandmortyapi.com/api/character/avatar/14.jpeg"
+        )
 
         return data
     }
