@@ -6,8 +6,8 @@
 //
 import Foundation
 
-// MARK: - Characters
-struct RMCharacters: Codable {
+// MARK: - Character
+struct RMCharacter: Codable {
     let id: Int
     let name: String
     let status: String
