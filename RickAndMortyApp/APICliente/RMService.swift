@@ -26,18 +26,21 @@ final class RMService {
     public func execute<T: Codable>(
         _ request: RMRequest
     ) async throws -> T {
-        let data = try await baseRequest(request)
-        return try JSONDecoder().decode(T.self, from: data)
-    }
-
-    public func fetchImage(_ request: RMRequest) async throws -> Data {
-        return try await baseRequest(request)
-    }
-
-    private func baseRequest(_ request: RMRequest) async throws -> Data {
         guard let url = request.url else {
             throw RMServiceError.failedToCreateRequest
         }
+        let data = try await baseRequest(url)
+        return try JSONDecoder().decode(T.self, from: data)
+    }
+
+    public func fetchImage(urlString: String) async throws -> Data {
+        guard let url = URL(string: urlString) else {
+            throw URLError(.badURL)
+        }
+        return try await baseRequest(url)
+    }
+
+    private func baseRequest(_ url: URL) async throws -> Data {
         print(url)
         let (data, response) = try await URLSession.shared.data(from: url)
         print(response)

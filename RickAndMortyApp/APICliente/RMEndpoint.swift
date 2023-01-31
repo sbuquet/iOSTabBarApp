@@ -13,5 +13,4 @@ import Foundation
     case character
     case episode
     case location
-    case image = "character/avatar/14.jpeg"
 }
